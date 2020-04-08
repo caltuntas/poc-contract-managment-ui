@@ -11,7 +11,7 @@ import { MyProcessData } from '../../schemas/MyProcessData';
 })
 export class talepComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new MyProcessData('','',false);
+  model = new MyProcessData();
 
   constructor(route: ActivatedRoute,
     router: Router,

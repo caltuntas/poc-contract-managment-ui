@@ -42,6 +42,14 @@ export class CamundaRestService {
     );
   }
 
+  getVariablesForProcessInstance(processId: String, variableNames: String): Observable<any> {
+    const endpoint = `${this.engineRestUrl}process-instance/${processId}/variables`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched variables`)),
+      catchError(this.handleError('getVariablesForTask', []))
+    );
+  }
+
   postCompleteTask(taskId: String, variables: Object): Observable<any> {
     const endpoint = `${this.engineRestUrl}task/${taskId}/complete`;
     return this.http.post<any>(endpoint, variables).pipe(

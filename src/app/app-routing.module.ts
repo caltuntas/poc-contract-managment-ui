@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'processlist', component: ProcesslistComponent },
   { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent },
   { path: 'tasklist', component: TasklistComponent },
-  { path: 'tasklist/:id', component: TasklistComponent },
+  { path: 'tasklist/:id/:processInstanceId', component: TasklistComponent },
 ];
 
 @NgModule({

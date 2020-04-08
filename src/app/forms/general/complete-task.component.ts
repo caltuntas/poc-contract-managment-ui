@@ -26,7 +26,12 @@ export class CompleteTaskComponent {
     });
   }
   loadExistingVariables(taskId: String, variableNames: String) {
+    /*
     this.camundaRestService.getVariablesForTask(taskId, variableNames).subscribe((result) => {
+      this.generateModelFromVariables(result);
+    });
+    */
+    this.camundaRestService.getVariablesForProcessInstance(taskId, variableNames).subscribe((result) => {
       this.generateModelFromVariables(result);
     });
   }

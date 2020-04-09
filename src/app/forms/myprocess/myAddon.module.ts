@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { startNewProcessComponent } from './startNewProcess.component';
 import { approveDataTaskComponent } from './approveDataTask.component';
 import { talepComponent } from './talep.component';
@@ -11,7 +12,7 @@ import { arsivComponent } from './arsiv.component';
 @NgModule({
   entryComponents: [startNewProcessComponent, approveDataTaskComponent, talepComponent, hukukComponent, satinalmaComponent, arsivComponent],
   declarations: [startNewProcessComponent, approveDataTaskComponent, talepComponent, hukukComponent, satinalmaComponent, arsivComponent],
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   exports: [startNewProcessComponent, approveDataTaskComponent, talepComponent, hukukComponent, satinalmaComponent, arsivComponent]
 })
 export class MyAddonModule { }

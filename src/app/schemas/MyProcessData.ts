@@ -16,6 +16,9 @@ export class MyProcessData {
     public grupSirketi: string;
     public hukukYorum: string;
     public satinalmaYorum: string;
+    public bedelli: string;
+
+
 
   constructor(
   ) {  }

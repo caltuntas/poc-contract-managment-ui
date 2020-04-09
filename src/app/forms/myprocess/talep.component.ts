@@ -10,8 +10,32 @@ import { MyProcessData } from '../../schemas/MyProcessData';
   styleUrls: []
 })
 export class talepComponent extends CompleteTaskComponent {
-  submitted:boolean = false;
+  submitted = false;
   model = new MyProcessData();
+  sablonlar = [
+    {id: 1 , name: 'Kampanya Sözleşme Şablonu'},
+    {id: 2, name: 'Çerçeve Gizlilik Sözleşmesi Şablonu'},
+    {id: 3, name: 'Örnek Şablon 1'},
+    {id: 4, name: 'Örnek Şablon 2'},
+  ];
+
+  grupSirketleri = [
+    {id: 1 , name: 'REHBERLİK HİZMETLERİ SERVİSİ A.Ş.'},
+    {id: 2, name: 'Lifecell Ventures'},
+    {id: 3, name: 'BELTEL TELEKOMİNİKASYON HİZMETLERİ A.Ş'},
+    {id: 4, name: 'TURKCELL GAYRİMENKUL HİZMETLERİ A.Ş.'},
+  ];
+
+  karsiTarafUnvanlari = [
+    {id: 1 , name: 'Ericsson'},
+    {id: 2, name: 'Ericsson ARGE'},
+    {id: 3, name: 'Ericsson Global'},
+  ];
+
+  bedelliSecenekleri = [
+    {id: 'Evet' , value: 'Evet'},
+    {id: 'Hayir', value: 'Hayır'},
+  ];
 
   constructor(route: ActivatedRoute,
     router: Router,

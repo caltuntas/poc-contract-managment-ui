@@ -1,37 +1,47 @@
 <div class="container">
   <div [hidden]="submitted">
-    <h1>Hukuk Bilgileri</h1>
+    <h1>Satınalma Onayı</h1>
     <form (ngSubmit)="onSubmit()" #talepForm="ngForm" class="ui form">
       <div class="control-group">
         <label class="control-label">Şablon</label>
         <div class="controls">
-          <select class="form-control" required>
-            <option>Kampanya Sözleşme Şablonu</option>
-            <option>Çerçeve Gizlilik Sözleşmesi Şablonu</option>
-            <option>Örnek Şablon 1</option>
-            <option>Örnek Şablon 2</option>
-          </select>
+          <input class="form-control" type="text"
+            [readonly]="true"
+            class="form-control"
+            type="text"
+            id="sablon"
+            [(ngModel)]="model.sablon"
+            name="sablon"
+            #name="ngModel"
+            />
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Turkcell Grup Şirketi</label>
         <div class="controls">
-          <select class="form-control" required>
-            <option>REHBERLİK HİZMETLERİ SERVİSİ A.Ş.</option>
-            <option>Lifecell Ventures</option>
-            <option>BELTEL TELEKOMİNİKASYON HİZMETLERİ A.Ş</option>
-            <option>TURKCELL GAYRİMENKUL HİZMETLERİ A.Ş.</option>
-          </select>
+          <input class="form-control" type="text" readonly
+            [readonly]="true"
+            class="form-control"
+            type="text"
+            id="grupSirketi"
+            [(ngModel)]="model.grupSirketi"
+            name="grupSirketi"
+            #name="ngModel"
+            />
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Karşı taraf ünvanı</label>
         <div class="controls">
-          <select class="form-control" required>
-            <option>Ericsson</option>
-            <option>Ericsson ARGE</option>
-            <option>Ericsson Global</option>
-          </select>
+          <input class="form-control" type="text"
+            [readonly]="true"
+            class="form-control"
+            type="text"
+            id="karsiTarafUnvani"
+            [(ngModel)]="model.karsiTarafUnvani"
+            name="karsiTarafUnvani"
+            #name="ngModel"
+            />
         </div>
       </div>
       <div class="control-group">
@@ -179,7 +189,17 @@
           </div>
         </div>
       </div>
-
+      <div class="control-group">
+        <label class="control-label">Yorum</label>
+        <div class="controls">
+          <textarea
+              id="satinalmaYorum"
+              [(ngModel)]="model.satinalmaYorum"
+              name="satinalmaYorum"
+              #name="ngModel"
+            ></textarea>
+        </div>
+      </div>
       <div class="control-group">
         <div class="controls">
           <input style="display: none;" type="text" id="sozlesmeNo" />
@@ -192,6 +212,15 @@
           [disabled]="!talepForm.form.valid"
         >
           Tamamla
+        </button>
+      </div>
+      <div class="field">
+        <button
+          type="submit"
+          class="ui button"
+          [disabled]="!talepForm.form.valid"
+        >
+          Reddet
         </button>
       </div>
     </form>

@@ -11,6 +11,11 @@ export class MyProcessData {
     public sozlesmeBedeli: string;
     public sozlesmeBitisTarihi: string;
     public sozlesmeBaslangicTarihi: string;
+    public sablon: string;
+    public karsiTarafUnvani: string;
+    public grupSirketi: string;
+    public hukukYorum: string;
+    public satinalmaYorum: string;
 
   constructor(
   ) {  }

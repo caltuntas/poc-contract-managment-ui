@@ -81,35 +81,19 @@
       </div>
       <div class="control-group">
         <label class="control-label">Bedelli</label>
-        <div class="form-check form-check-inline">
+        <div class="controls">
           <input
             [readonly]="true"
-            class="form-check-input"
-            type="radio"
-            ng-model="value"
+            class="form-control"
+            type="text"
+            id="bedelli"
+            [(ngModel)]="model.bedelli"
             name="bedelli"
-            ng-change="newValue(value)"
-            id="bedelliEvet"
-            value="Evet"
+            #name="ngModel"
           />
-          <label class="form-check-label" for="bedelliEvet">Evet</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            [readonly]="true"
-            class="form-check-input"
-            type="radio"
-            ng-model="value"
-            name="bedelli"
-            ng-change="newValue(value)"
-            id="bedelliHayir"
-            value="Hayir"
-          />
-          <label class="form-check-label" for="bedelliHayir">Hayır</label>
         </div>
       </div>
-
-      <div ng-show="value == 'Evet'">
+      <div *ngIf="model.bedelli == 'Evet'" >
         <div class="control-group">
           <label class="control-label">Sözleşme Bedeli</label>
           <div class="controls">

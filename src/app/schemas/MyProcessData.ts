@@ -17,6 +17,8 @@ export class MyProcessData {
     public hukukYorum: string;
     public satinalmaYorum: string;
     public bedelli: string;
+    public satinalmaOnay: string;
+    public hukukOnay: string;
 
 
 

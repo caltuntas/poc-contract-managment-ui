@@ -12,10 +12,10 @@ import * as MyAddon from './forms/myprocess/myAddon.module';
   styleUrls: []
 })
 export class GenericForm implements OnChanges {
-  @ViewChild('dynamic', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef
+  @ViewChild('dynamic', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef;
 
-  @Input() formKey:String = null;
-  @Input() taskId:String = null;
+  @Input() formKey: String = null;
+  @Input() taskId: String = null;
   private rootViewContainer = null;
   private myAddonModule = null;
 
@@ -24,7 +24,7 @@ export class GenericForm implements OnChanges {
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    for (let propName in changes) {
+    for (const propName in changes) {
       if (propName === 'formKey' && changes[propName].currentValue != null) {
         this.loadForm(changes[propName].currentValue);
       }
@@ -38,15 +38,16 @@ export class GenericForm implements OnChanges {
   }
 
   public setRootViewContainerRef(viewContainerRef) {
-    this.rootViewContainer = viewContainerRef
+    this.rootViewContainer = viewContainerRef;
   }
 
   public addDynamicComponent(formKey: String) {
-    console.log(MyAddon)
-    console.log(formKey)
-    const factory = this.factoryResolver.resolveComponentFactory(MyAddon[formKey+'Component'])
-    const component = factory.create(this.rootViewContainer.parentInjector)
+    console.log(MyAddon);
+    console.log(formKey);
+    const factory = this.factoryResolver.resolveComponentFactory(MyAddon[formKey + 'Component']);
+    const component = factory.create(this.rootViewContainer.parentInjector);
 
-    this.rootViewContainer.insert(component.hostView)
+    this.rootViewContainer.clear();
+    this.rootViewContainer.insert(component.hostView);
   }
 }

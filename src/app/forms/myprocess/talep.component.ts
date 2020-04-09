@@ -42,9 +42,9 @@ export class talepComponent extends CompleteTaskComponent {
     camundaRestService: CamundaRestService) {
     super(route, router, camundaRestService);
     this.route.params.subscribe(params => {
-      const taskId = params['id'];
+      const taskId = params['processInstanceId'];
       const variableNames = Object.keys(this.model).join(',');
-      this.loadExistingVariables(taskId, variableNames);
+      this.loadExistingProcessVariables(taskId, variableNames);
     });
   }
 

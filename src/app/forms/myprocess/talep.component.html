@@ -6,7 +6,7 @@
         <label class="control-label">Şablon</label>
         <div class="controls">
           <select name="sablon" class="form-control" [(ngModel)]="model.sablon" required>
-            <option *ngFor="let c of sablonlar" [ngValue]="c.id">{{c.name}}</option>
+            <option *ngFor="let c of sablonlar" [ngValue]="c.name">{{c.name}}</option>
           </select>
         </div>
       </div>
@@ -14,7 +14,7 @@
         <label class="control-label">Turkcell Grup Şirketi</label>
         <div class="controls">
           <select name="grupSirketi" class="form-control" [(ngModel)]="model.grupSirketi" required>
-            <option *ngFor="let c of grupSirketleri" [ngValue]="c.id">{{c.name}}</option>
+            <option *ngFor="let c of grupSirketleri" [ngValue]="c.name">{{c.name}}</option>
           </select>
         </div>
       </div>
@@ -22,7 +22,7 @@
         <label class="control-label">Karşı taraf ünvanı</label>
         <div class="controls">
           <select name="karsiTarafUnvani" class="form-control" [(ngModel)]="model.karsiTarafUnvani" required>
-            <option *ngFor="let c of karsiTarafUnvanlari" [ngValue]="c.id">{{c.name}}</option>
+            <option *ngFor="let c of karsiTarafUnvanlari" [ngValue]="c.name">{{c.name}}</option>
           </select>
         </div>
       </div>

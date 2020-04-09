@@ -21,7 +21,7 @@ export class satinalmaComponent extends CompleteTaskComponent {
       const taskId = params['id'];
       const processIntanceId = params['processInstanceId'];
       const variableNames = Object.keys(this.model).join(',');
-      this.loadExistingVariables(processIntanceId, variableNames);
+      this.loadExistingProcessVariables(processIntanceId, variableNames);
     });
   }
 

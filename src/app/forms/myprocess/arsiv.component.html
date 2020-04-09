@@ -1,6 +1,6 @@
 <div class="container">
   <div [hidden]="submitted">
-    <h1>Hukuk Onayı</h1>
+    <h1>Arşiv</h1>
     <form (ngSubmit)="onSubmit()" #talepForm="ngForm" class="ui form">
       <div class="control-group">
         <label class="control-label">Şablon</label>
@@ -200,9 +200,22 @@
         <label class="control-label">Yorum</label>
         <div class="controls">
           <textarea
+            [readonly]="true"
             id="hukukYorum"
             [(ngModel)]="model.hukukYorum"
             name="hukukYorum"
+            #name="ngModel"
+          ></textarea>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Yorum</label>
+        <div class="controls">
+          <textarea
+            [readonly]="true"
+            id="satinalmaYorum"
+            [(ngModel)]="model.satinalmaYorum"
+            name="satinalmaYorum"
             #name="ngModel"
           ></textarea>
         </div>
@@ -218,14 +231,7 @@
           class="ui button"
           [disabled]="!talepForm.form.valid"
         >
-          Tamamla
-        </button>
-        <button
-          type="submit"
-          class="ui button"
-          [disabled]="!talepForm.form.valid"
-        >
-          Reddet
+          Arşivle
         </button>
       </div>
     </form>

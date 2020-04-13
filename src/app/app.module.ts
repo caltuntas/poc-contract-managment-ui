@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { GenericForm } from './generic-form.component';
 import { ProcessModule } from './forms/process/process.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyMaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ProcessModule } from './forms/process/process.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProcessModule
+    ProcessModule,
+    BrowserAnimationsModule,
+    MyMaterialModule,
   ],
   providers: [CamundaRestService],
   bootstrap: [AppComponent]

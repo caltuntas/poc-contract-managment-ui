@@ -6,7 +6,7 @@ import { SuiModule } from 'ng2-semantic-ui';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CamundaRestService } from './camunda-rest.service';
+import { CamundaRestService } from './services/camunda-rest.service';
 import { ProcesslistComponent } from './processlist/processlist.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { HomeComponent } from './home/home.component';

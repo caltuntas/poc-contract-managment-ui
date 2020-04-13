@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from "rxjs";
 
-import { CamundaRestService } from '../camunda-rest.service'
+import { CamundaRestService } from '../services/camunda-rest.service'
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { CamundaRestService } from '../camunda-rest.service'
 export class HomeComponent implements OnInit {
   private fileToUpload: File = null;
   private SUCCESS: boolean = false;
-  
+
   constructor(private camundaRestService: CamundaRestService) { }
 
   ngOnInit() {

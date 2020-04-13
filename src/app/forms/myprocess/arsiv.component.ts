@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CamundaRestService } from '../../camunda-rest.service';
+import { CamundaRestService } from '../../services/camunda-rest.service';
 import { CompleteTaskComponent } from '../general/complete-task.component';
-import { MyProcessData } from '../../schemas/MyProcessData';
+import { MyProcessData } from '../../model/MyProcessData';
 
 @Component({
   selector: 'arsivComponent',

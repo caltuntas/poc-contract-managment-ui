@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { CamundaRestService } from '../camunda-rest.service';
-import { Task } from '../schemas/Task';
+import { CamundaRestService } from '../services/camunda-rest.service';
+import { Task } from '../model/Task';
 
 @Component({
   selector: 'app-tasklist',

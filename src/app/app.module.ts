@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
-import { SuiModule } from 'ng2-semantic-ui';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +24,6 @@ import { ProcessModule } from './forms/process/process.module';
   ],
   imports: [
     FormsModule,
-    SuiModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

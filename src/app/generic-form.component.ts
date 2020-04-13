@@ -4,7 +4,7 @@ import { Component, OnInit,
   OnChanges, SimpleChange, Input } from '@angular/core';
 
 import { TasklistComponent } from './tasklist/tasklist.component';
-import * as MyAddon from './forms/myprocess/myAddon.module';
+import * as MyAddon from './forms/process/process.module';
 
 @Component({
   selector: 'generic-form',

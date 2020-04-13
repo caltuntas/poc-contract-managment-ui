@@ -12,7 +12,7 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 import { HomeComponent } from './home/home.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { GenericForm } from './generic-form.component';
-import { MyAddonModule } from './forms/myprocess/myAddon.module';
+import { ProcessModule } from './forms/process/process.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { MyAddonModule } from './forms/myprocess/myAddon.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MyAddonModule
+    ProcessModule
   ],
   providers: [CamundaRestService],
   bootstrap: [AppComponent]

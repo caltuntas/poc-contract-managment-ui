@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild,
   ViewContainerRef, ComponentFactoryResolver  } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { CamundaRestService } from '../services/camunda-rest.service';
+import { CamundaRestService } from '../shared/services/camunda-rest.service';
 import { GenericForm } from '../generic-form.component';
 
 @Component({

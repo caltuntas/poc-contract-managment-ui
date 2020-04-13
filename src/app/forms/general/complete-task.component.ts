@@ -1,4 +1,4 @@
-import { CamundaRestService } from '../../services/camunda-rest.service';
+import { CamundaRestService } from '../../shared/services/camunda-rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 export class CompleteTaskComponent {

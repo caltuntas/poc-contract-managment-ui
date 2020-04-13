@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CamundaRestService } from '../../services/camunda-rest.service';
+import { CamundaRestService } from '../../shared/services/camunda-rest.service';
 import { CompleteTaskComponent } from '../general/complete-task.component';
-import { ProcessData } from '../../models/ProcessData';
+import { ProcessData } from '../../shared/models/ProcessData';
 
 @Component({
   selector: 'hukukComponent',

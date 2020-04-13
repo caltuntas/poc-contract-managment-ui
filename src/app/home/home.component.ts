@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from "rxjs";
 
-import { CamundaRestService } from '../services/camunda-rest.service'
+import { CamundaRestService } from '../shared/services/camunda-rest.service'
 
 @Component({
   selector: 'app-home',

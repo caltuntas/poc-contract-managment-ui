@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CamundaRestService } from '../../services/camunda-rest.service';
+import { CamundaRestService } from '../../shared/services/camunda-rest.service';
 import { StartProcessInstanceComponent } from '../general/start-process-instance.component'
-import { ProcessData } from '../../models/ProcessData';
+import { ProcessData } from '../../shared/models/ProcessData';
 
 @Component({
   selector: 'startNewProcess',

@@ -3,8 +3,8 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ProcessDefinition } from '../model/ProcessDefinition';
-import { Task } from '../model/Task';
+import { ProcessDefinition } from '../models/ProcessDefinition';
+import { Task } from '../models/Task';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

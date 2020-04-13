@@ -1,4 +1,4 @@
-export class MyProcessData {
+export class ProcessData {
     public firstName: string;
     public lastName: string;
     public approved: boolean;

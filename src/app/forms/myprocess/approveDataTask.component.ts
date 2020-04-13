@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../services/camunda-rest.service';
 import { CompleteTaskComponent } from '../general/complete-task.component';
-import { MyProcessData } from '../../model/MyProcessData';
+import { ProcessData } from '../../models/ProcessData';
 
 @Component({
   selector: 'approveDataTask',
@@ -11,7 +11,7 @@ import { MyProcessData } from '../../model/MyProcessData';
 })
 export class approveDataTaskComponent extends CompleteTaskComponent {
   submitted:boolean = false;
-  model = new MyProcessData();
+  model = new ProcessData();
 
   constructor(route: ActivatedRoute,
     router: Router,

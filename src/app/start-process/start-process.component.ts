@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Component, OnInit, ViewChild,
   ViewContainerRef, ComponentFactoryResolver  } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';

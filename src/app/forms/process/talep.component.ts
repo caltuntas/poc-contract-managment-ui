@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../shared/services/camunda-rest.service';
 import { CompleteTaskComponent } from '../general/complete-task.component';
 import { ProcessData } from '../../shared/models/ProcessData';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'talepComponent',
@@ -10,6 +11,7 @@ import { ProcessData } from '../../shared/models/ProcessData';
   styleUrls: []
 })
 export class talepComponent extends CompleteTaskComponent {
+  formGroup: FormGroup;
   submitted = false;
   model = new ProcessData();
   sablonlar = [

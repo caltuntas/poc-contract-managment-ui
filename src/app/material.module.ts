@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatListModule, MatSidenavModule, } from '@angular/material';
+import { MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatListModule, MatSidenavModule, MatExpansionModule, MatTableModule, MatSelectModule, MatMenuModule, } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,7 +16,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatListModule,
     MatRadioModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatInputModule,
   ],
 
   exports: [
@@ -33,6 +38,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     MatRadioModule,
     MatSidenavModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatInputModule,
   ],
 
 })

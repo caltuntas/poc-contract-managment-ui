@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ProcesslistComponent } from './processlist/processlist.component';
 import { StartProcessComponent } from './start-process/start-process.component'
 import { TasklistComponent } from './tasklist/tasklist.component';
+import { TaskComponent } from './task/task.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'processlist', component: ProcesslistComponent },
   { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent },
   { path: 'tasklist', component: TasklistComponent },
-  { path: 'tasklist/:id/:processInstanceId', component: TasklistComponent },
+  { path: 'tasks/:id/:processInstanceId', component: TaskComponent },
 ];
 
 @NgModule({

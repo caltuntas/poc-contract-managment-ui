@@ -4,12 +4,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CamundaRestService } from '../shared/services/camunda-rest.service';
 import { Task } from '../shared/models/Task';
 
+
 @Component({
   selector: 'app-tasklist',
   templateUrl: './tasklist.component.html',
   styleUrls: ['./tasklist.component.css']
 })
 export class TasklistComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name', 'description', 'priority', 'test'];
   tasks: Task[] = null;
   taskId: String;
   formKey: String;
@@ -22,22 +24,6 @@ export class TasklistComponent implements OnInit {
 
   ngOnInit() {
     this.getTasks();
-    if (this.route.params != null) {
-      this.route.params.subscribe(params => {
-        if (params['id'] != null) {
-          this.taskId = params['id'];
-          this.getFormKey();
-        } else {
-          this.getTasks();
-        }
-      });
-    }
-  }
-
-  getFormKey(): void {
-    this.camundaRestService
-      .getTaskFormKey(this.taskId)
-      .subscribe(formKey => this.formKey = formKey.key);
   }
 
   getTasks(): void {

@@ -1,170 +1,206 @@
-<div class="container">
-  <div [hidden]="submitted">
-    <h1>Talep Bilgileri</h1>
-    <form (ngSubmit)="onSubmit()" #talepForm="ngForm" class="ui form">
-      <div class="control-group">
-        <label class="control-label">Şablon</label>
-        <div class="controls">
-          <select name="sablon" class="form-control" [(ngModel)]="model.sablon" required>
-            <option *ngFor="let c of sablonlar" [ngValue]="c.name">{{c.name}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Turkcell Grup Şirketi</label>
-        <div class="controls">
-          <select name="grupSirketi" class="form-control" [(ngModel)]="model.grupSirketi" required>
-            <option *ngFor="let c of grupSirketleri" [ngValue]="c.name">{{c.name}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Karşı taraf ünvanı</label>
-        <div class="controls">
-          <select name="karsiTarafUnvani" class="form-control" [(ngModel)]="model.karsiTarafUnvani" required>
-            <option *ngFor="let c of karsiTarafUnvanlari" [ngValue]="c.name">{{c.name}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Sözleşme Başlangıç Tarihi</label>
-        <div class="controls">
-          <input
-            class="form-control"
-            type="date"
-            id="sozlesmeBaslangicTarihi"
-            [(ngModel)]="model.sozlesmeBaslangicTarihi"
-            name="sozlesmeBaslangicTarihi"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Sözleşme Bitiş Tarihi</label>
-        <div class="controls">
-          <input
-            class="form-control"
-            type="date"
-            id="sozlesmeBitisTarihi"
-            [(ngModel)]="model.sozlesmeBitisTarihi"
-            name="sozlesmeBitisTarihi"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Bedelli</label>
-        <div *ngFor="let option of bedelliSecenekleri">
-          <div class="radio">
-              <input type="radio"
-                 name="radio"
-                 id="radio-{{option.id}}"
-                 [(ngModel)]="model.bedelli"
-                 [value]="option.value"
-                 />
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Talep Bilgileri</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <div [hidden]="submitted">
+        <form (ngSubmit)="onSubmit()" #talepForm="ngForm" class="example-form">
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Şablon</mat-label>
+              <mat-select name="sablon" [(ngModel)]="model.sablon" required>
+                <mat-option *ngFor="let c of sablonlar" [value]="c.name">{{
+                  c.name
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Turkcell Grup Şirketi</mat-label>
+              <mat-select
+                name="grupSirketi"
+                [(ngModel)]="model.grupSirketi"
+                required
+              >
+                <mat-option *ngFor="let c of grupSirketleri" [value]="c.name">{{
+                  c.name
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Karşı taraf ünvanı</mat-label>
+              <mat-select
+                name="karsiTarafUnvani"
+                [(ngModel)]="model.karsiTarafUnvani"
+                required
+              >
+                <mat-option
+                  *ngFor="let c of karsiTarafUnvanlari"
+                  [value]="c.name"
+                  >{{ c.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Sözleşme Başlangıç Tarihi</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                [(ngModel)]="model.sozlesmeBaslangicTarihi"
+                name="sozlesmeBaslangicTarihi"
+                #name="ngModel"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Sözleşme Bitiş Tarihi</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                [(ngModel)]="model.sozlesmeBitisTarihi"
+                name="sozlesmeBitisTarihi"
+                #name="ngModel"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-radio-group
+              name="bedelli"
+              aria-label="Bedelli"
+              [(ngModel)]="model.bedelli"
+            >
+            <span style="margin-right:2%;">Bedelli:</span>
+              <mat-radio-button
+                *ngFor="let option of bedelliSecenekleri"
+                [value]="option.value"
+                >{{ option.id }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
 
-          <label for="radio-{{option.id}}">{{option.id}}
-          </label>
-      </div>
-      </div>
-      </div>
+          <div *ngIf="model.bedelli == 'Evet'">
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Sözleşme Bedeli</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  min="0"
+                  id="sozlesmeBedeli"
+                  [(ngModel)]="model.sozlesmeBedeli"
+                  name="sozlesmeBedeli"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Lisans Başlangıç Tarihi</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker2"
+                  [(ngModel)]="model.lisansBaslangicTarihi"
+                  name="lisansBaslangicTarihi"
+                  #name="ngModel"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Lisans Bitiş Tarihi</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker3"
+                  [(ngModel)]="model.lisansBitisTarihi"
+                  name="lisansBitisTarihi"
+                  #name="ngModel"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker3"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Garanti Süresi</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  id="garantiSuresi"
+                  [(ngModel)]="model.garantiSuresi"
+                  name="garantiSuresi"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Teslim Süresi</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="model.teslimSuresi"
+                  name="teslimSuresi"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Voucher</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="model.voucher"
+                  name="voucher"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+          </div>
 
-      <div *ngIf="model.bedelli=='Evet'" >
-        <div class="control-group">
-          <label class="control-label">Sözleşme Bedeli</label>
-          <div class="controls">
-            <input
-              class="form-control"
-              type="number"
-              min="0"
-              id="sozlesmeBedeli"
-              [(ngModel)]="model.sozlesmeBedeli"
-              name="sozlesmeBedeli"
-              #name="ngModel"
-            />
+          <div class="control-group">
+            <div class="controls">
+              <input style="display: none;" type="text" id="sozlesmeNo" />
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Lisans Başlangıç Tarihi</label>
-          <div class="controls">
-            <input
-              class="form-control"
-              type="date"
-              id="lisansBaslangicTarihi"
-              [(ngModel)]="model.lisansBaslangicTarihi"
-              name="lisansBaslangicTarihi"
-              #name="ngModel"
-            />
+          <div class="col-md-12">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              style="margin:5px"
+              [disabled]="!talepForm.form.valid"
+            >
+              Tamamla
+            </button>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Lisans Bitiş Tarihi</label>
-          <div class="controls">
-            <input
-              class="form-control"
-              type="date"
-              id="lisansBitisTarihi"
-              [(ngModel)]="model.lisansBitisTarihi"
-              name="lisansBitisTarihi"
-              #name="ngModel"
-            />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Garanti Süresi</label>
-          <div class="controls">
-            <input
-              class="form-control"
-              type="text"
-              id="garantiSuresi"
-              [(ngModel)]="model.garantiSuresi"
-              name="garantiSuresi"
-              #name="ngModel"
-            />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Teslim Süresi</label>
-          <div class="controls">
-            <input
-              class="form-control"
-              type="text"
-              id="teslimSuresi"
-              [(ngModel)]="model.teslimSuresi"
-              name="teslimSuresi"
-              #name="ngModel"
-            />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Voucher</label>
-          <div class="controls">
-            <input
-              class="form-control"
-              type="text"
-              id="voucher"
-              [(ngModel)]="model.voucher"
-              name="voucher"
-              #name="ngModel"
-            />
-          </div>
-        </div>
+        </form>
       </div>
-
-      <div class="control-group">
-        <div class="controls">
-          <input style="display: none;" type="text" id="sozlesmeNo" />
-        </div>
-      </div>
-      <div class="field">
-        <button
-          type="submit"
-          class="ui button"
-          [disabled]="!talepForm.form.valid"
-        >
-          Tamamla
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
+  </mat-card-content>
+</mat-card>

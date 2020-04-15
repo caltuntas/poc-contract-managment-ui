@@ -1,15 +1,57 @@
-<div class="ui grid">
-  <div class="ten wide column centered">
-    <h1>{{title}}</h1>
+<mat-toolbar color="primary" >
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      #btnSideNavToggle
+      (click)="sideNav.toggle()"
+      fxHide.gt-sm
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    Ericsson Süreç Yöneticisi
+    <span class="example-spacer"></span>
+    <span flex></span>
+    <button mat-icon-button >
+      <mat-icon>person_outline</mat-icon>
+    </button>
+    <button mat-icon-button >
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+          <mat-menu #auth="matMenu">
+            <button mat-menu-item >
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Sign out</span>
+            </button>
+          </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav
+    #sideNav
+    align="start"
+    mode="{{ navMode }}"
+    opened="true"
+    class="mat-elevation-z1"
+  >
+    <mat-nav-list>
+      <mat-accordion>
+        <a routerLink="/home" class="item" mat-list-item>
+          <mat-icon mat-list-icon>home</mat-icon
+          ><span mat-line>Ana Sayfa</span></a
+        >
+        <a routerLink="/processlist" class="item" mat-list-item>
+          <mat-icon mat-list-icon>settings</mat-icon
+          ><span mat-line>Süreç Listesi</span></a
+        >
+        <a routerLink="/tasklist" class="item" mat-list-item>
+          <mat-icon mat-list-icon>exit_to_app </mat-icon
+          ><span mat-line>Görev Listesi</span></a
+        >
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
-  <div class="ten wide column centered">
-    <div class="ui pointing menu inverted">
-      <a routerLink="/home" class="item">Home</a>
-      <a routerLink="/processlist" class="item">Start Process</a>
-      <a routerLink="/tasklist" class="item">Tasklist</a>
-    </div>
-    <div class="ui segment">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+</mat-sidenav-container>

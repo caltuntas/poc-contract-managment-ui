@@ -1,17 +1,41 @@
-<div class="ui grid">
-  <div class="six wide column">
-    <ul class="tasks">
-      <li *ngFor="let task of tasks">
-        <p><a routerLink="/tasklist/{{task.id}}/{{task.processInstanceId}}">{{task.name}}</a></p>
-      </li>
-    </ul>
-  </div>
-  <div class="ten wide column">
-    <div *ngIf="taskId">
-      <generic-form [taskId]="taskId" [formKey]="formKey"></generic-form>
-    </div>
-    <div *ngIf="!taskId">
-      <p>Please select task.</p>
-    </div>
-  </div>
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Görev Listesi</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>İsim</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Açıklama</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef>Öncelik</th>
+        <td mat-cell *matCellDef="let element">{{ element.priority }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="test">
+        <th mat-header-cell *matHeaderCellDef>*</th>
+        <td mat-cell *matCellDef="let element">
+          <a
+            routerLink="/tasks/{{ element.id }}/{{ element.processInstanceId }}"
+            >İşlem Yap</a
+          >
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

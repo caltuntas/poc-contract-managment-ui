@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { CamundaRestService } from '../shared/services/camunda-rest.service'
 import { MatSidenav } from '@angular/material';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   navMode = 'side';
 
   constructor(
+    private authService: AuthService,
     private observableMedia: MediaObserver) { }
 
   ngOnInit() {
@@ -40,6 +42,10 @@ export class HomeComponent implements OnInit {
             break;
         }
       });
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
 

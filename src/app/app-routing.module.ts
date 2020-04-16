@@ -16,7 +16,6 @@ const routes: Routes = [
     path: '', component: HomeComponent, canActivate: [AuthGuard],
     children: [
 
-      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'processlist', component: ProcesslistComponent, canActivate: [AuthGuard] },
       { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent, canActivate: [AuthGuard] },
       { path: 'tasklist', component: TasklistComponent, canActivate: [AuthGuard] },

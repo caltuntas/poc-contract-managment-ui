@@ -18,12 +18,13 @@ export class AuthService {
     if (userName !== '' && password !== '' ) {
       this.loggedIn.next(true);
       localStorage.setItem('currentUser', JSON.stringify(userName));
-      this.router.navigate(['/home']);
+      this.router.navigate(['/processlist']);
     }
   }
 
   logout() {
     this.loggedIn.next(false);
+    localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);
   }
 }

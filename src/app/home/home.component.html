@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" >
+<mat-toolbar color="primary">
   <mat-toolbar-row>
     <button
       mat-icon-button
@@ -11,18 +11,18 @@
     Ericsson Süreç Yöneticisi
     <span class="example-spacer"></span>
     <span flex></span>
-    <button mat-icon-button >
+    <button mat-icon-button>
       <mat-icon>person_outline</mat-icon>
     </button>
-    <button mat-icon-button >
+    <button mat-icon-button (click)="logout()" >
       <mat-icon>exit_to_app</mat-icon>
     </button>
-          <mat-menu #auth="matMenu">
-            <button mat-menu-item >
-              <mat-icon>exit_to_app</mat-icon>
-              <span>Sign out</span>
-            </button>
-          </mat-menu>
+    <mat-menu #auth="matMenu">
+      <button mat-menu-item >
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>

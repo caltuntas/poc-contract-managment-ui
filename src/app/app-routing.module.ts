@@ -6,19 +6,28 @@ import { ProcesslistComponent } from './processlist/processlist.component';
 import { StartProcessComponent } from './start-process/start-process.component'
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { TaskComponent } from './task/task.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'processlist', component: ProcesslistComponent },
-  { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent },
-  { path: 'tasklist', component: TasklistComponent },
-  { path: 'tasks/:id/:processInstanceId', component: TaskComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: '', component: HomeComponent, canActivate: [AuthGuard],
+    children: [
+
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'processlist', component: ProcesslistComponent, canActivate: [AuthGuard] },
+      { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent, canActivate: [AuthGuard] },
+      { path: 'tasklist', component: TasklistComponent, canActivate: [AuthGuard] },
+      { path: 'tasks/:id/:processInstanceId', component: TaskComponent, canActivate: [AuthGuard] },
+    ],
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

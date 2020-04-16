@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { ProcessModule } from './forms/process/process.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyMaterialModule } from './material.module';
 import { TaskComponent } from './task/task.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { TaskComponent } from './task/task.component';
     TaskComponent,
     HomeComponent,
     StartProcessComponent,
-    GenericForm
+    GenericForm,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -34,8 +38,9 @@ import { TaskComponent } from './task/task.component';
     ProcessModule,
     BrowserAnimationsModule,
     MyMaterialModule,
+    ReactiveFormsModule,
   ],
-  providers: [CamundaRestService],
+  providers: [CamundaRestService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

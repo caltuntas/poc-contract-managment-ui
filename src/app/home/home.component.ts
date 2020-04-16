@@ -1,34 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from "rxjs";
 
 import { CamundaRestService } from '../shared/services/camunda-rest.service'
+import { MatSidenav } from '@angular/material';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private fileToUpload: File = null;
-  private SUCCESS: boolean = false;
+  title = 'Sözleşme Yönetimi';
+  @ViewChild('sideNav', {read: MatSidenav}) sideNav: MatSidenav;
 
-  constructor(private camundaRestService: CamundaRestService) { }
+  navMode = 'side';
+
+  constructor(
+    private observableMedia: MediaObserver) { }
 
   ngOnInit() {
-  }
+    if (this.observableMedia.isActive('xs') || this.observableMedia.isActive('sm')) {
+      this.navMode = 'over';
+    }
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    this.uploadFileToActivity();
-  }
-
-  uploadFileToActivity() {
-    this.camundaRestService.deployProcess(this.fileToUpload).subscribe(data => {
-      this.SUCCESS = true;
-      }, error => {
-        console.log(error);
-    });
+    this.observableMedia.media$
+      .subscribe((change: MediaChange) => {
+        switch (change.mqAlias) {
+          case 'xs':
+          case 'sm':
+            this.navMode = 'over';
+            this.sideNav.close();
+            break;
+          default:
+            this.navMode = 'side';
+            this.sideNav.open();
+            break;
+        }
+      });
   }
 }
+

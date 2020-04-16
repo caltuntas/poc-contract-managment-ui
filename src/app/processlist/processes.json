@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sozlesme:1:d8c61c39-7d57-11ea-9f0c-acde48001122",
+    "key": "sozlesme",
+    "category": "http://bpmn.io/schema/bpmn",
+    "description": null,
+    "name": "Sözleşme Yönetimi",
+    "version": 1,
+    "resource": "bpmn/contractManagement.bpmn",
+    "deploymentId": "d8a12f17-7d57-11ea-9f0c-acde48001122",
+    "diagram": null,
+    "suspended": false,
+    "tenantId": null,
+    "versionTag": null,
+    "historyTimeToLive": null,
+    "startableInTasklist": true
+  }
+]

@@ -7,7 +7,8 @@ import { CamundaRestService } from '../shared/services/camunda-rest.service'
   styleUrls: ['./processlist.component.css']
 })
 export class ProcesslistComponent implements OnInit {
-  private processDefinitions;
+  processDefinitions;
+  displayedColumns: string[] = ['id', 'name', 'description', 'key', 'resource', 'action'];
 
   constructor(private camundaRestService: CamundaRestService) { }
 

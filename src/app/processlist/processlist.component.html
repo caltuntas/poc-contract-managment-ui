@@ -1,9 +1,42 @@
-<div class="ui grid">
-  <div class="sixteen wide column">
-    <ul class="processDefinitions">
-      <li *ngFor="let processDefinition of processDefinitions">
-        <p><a routerLink="/startprocess/{{processDefinition.key}}">{{processDefinition.name}}</a></p>
-      </li>
-    </ul>
-  </div>
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Süreç Listesi</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="processDefinitions" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>İsim</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Açıklama</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="key">
+        <th mat-header-cell *matHeaderCellDef>Anahtar</th>
+        <td mat-cell *matCellDef="let element">{{ element.key }}</td>
+      </ng-container>
+      <ng-container matColumnDef="resource">
+        <th mat-header-cell *matHeaderCellDef>Kaynak</th>
+        <td mat-cell *matCellDef="let element">{{ element.resource }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>*</th>
+        <td mat-cell *matCellDef="let element">
+        <a routerLink="/startprocess/{{element.key}}">Başlat</a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

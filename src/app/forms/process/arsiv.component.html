@@ -1,223 +1,209 @@
-<div class="container">
-  <div [hidden]="submitted">
-    <h1>Arşiv</h1>
-    <form (ngSubmit)="onSubmit()" #talepForm="ngForm" class="ui form">
-      <div class="control-group">
-        <label class="control-label">Şablon</label>
-        <div class="controls">
-          <input
-            class="form-control"
-            type="text"
-            [readonly]="true"
-            class="form-control"
-            type="text"
-            id="sablon"
-            [(ngModel)]="model.sablon"
-            name="sablon"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Turkcell Grup Şirketi</label>
-        <div class="controls">
-          <input
-            class="form-control"
-            type="text"
-            readonly
-            [readonly]="true"
-            class="form-control"
-            type="text"
-            id="grupSirketi"
-            [(ngModel)]="model.grupSirketi"
-            name="grupSirketi"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Karşı taraf ünvanı</label>
-        <div class="controls">
-          <input
-            class="form-control"
-            type="text"
-            [readonly]="true"
-            class="form-control"
-            type="text"
-            id="karsiTarafUnvani"
-            [(ngModel)]="model.karsiTarafUnvani"
-            name="karsiTarafUnvani"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Sözleşme Başlangıç Tarihi</label>
-        <div class="controls">
-          <input
-            [readonly]="true"
-            class="form-control"
-            type="date"
-            id="sozlesmeBaslangicTarihi"
-            [(ngModel)]="model.sozlesmeBaslangicTarihi"
-            name="sozlesmeBaslangicTarihi"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Sözleşme Bitiş Tarihi</label>
-        <div class="controls">
-          <input
-            [readonly]="true"
-            class="form-control"
-            type="date"
-            id="sozlesmeBitisTarihi"
-            [(ngModel)]="model.sozlesmeBitisTarihi"
-            name="sozlesmeBitisTarihi"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Bedelli</label>
-        <div class="controls">
-          <input
-            [readonly]="true"
-            class="form-control"
-            type="text"
-            id="bedelli"
-            [(ngModel)]="model.bedelli"
-            name="bedelli"
-            #name="ngModel"
-          />
-        </div>
-      </div>
-      <div *ngIf="model.bedelli == 'Evet'" >
-        <div class="control-group">
-          <label class="control-label">Sözleşme Bedeli</label>
-          <div class="controls">
-            <input
-              [readonly]="true"
-              class="form-control"
-              type="number"
-              min="0"
-              id="sozlesmeBedeli"
-              [(ngModel)]="model.sozlesmeBedeli"
-              name="sozlesmeBedeli"
-              #name="ngModel"
-            />
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Arşiv</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <div [hidden]="submitted">
+        <form (ngSubmit)="onSubmit()" #talepForm="ngForm" class="example-form">
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Şablon</mat-label>
+              <input
+                matInput
+                [disabled]="true"
+                type="text"
+                [(ngModel)]="model.sablon"
+                name="sablon"
+                #name="ngModel"
+              />
+            </mat-form-field>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Lisans Başlangıç Tarihi</label>
-          <div class="controls">
-            <input
-              [readonly]="true"
-              class="form-control"
-              type="date"
-              id="lisansBaslangicTarihi"
-              [(ngModel)]="model.lisansBaslangicTarihi"
-              name="lisansBaslangicTarihi"
-              #name="ngModel"
-            />
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Turkcell Grup Şirketi</mat-label>
+              <input
+                matInput
+                [disabled]="true"
+                type="text"
+                [(ngModel)]="model.grupSirketi"
+                name="grupSirketi"
+                #name="ngModel"
+              />
+            </mat-form-field>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Lisans Bitiş Tarihi</label>
-          <div class="controls">
-            <input
-              [readonly]="true"
-              class="form-control"
-              type="date"
-              id="lisansBitisTarihi"
-              [(ngModel)]="model.lisansBitisTarihi"
-              name="lisansBitisTarihi"
-              #name="ngModel"
-            />
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Karşı taraf ünvanı</mat-label>
+              <input
+                matInput
+                [disabled]="true"
+                type="text"
+                [(ngModel)]="model.karsiTarafUnvani"
+                name="karsiTarafUnvani"
+                #name="ngModel"
+              />
+            </mat-form-field>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Garanti Süresi</label>
-          <div class="controls">
-            <input
-              [readonly]="true"
-              class="form-control"
-              type="text"
-              id="garantiSuresi"
-              [(ngModel)]="model.garantiSuresi"
-              name="garantiSuresi"
-              #name="ngModel"
-            />
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Sözleşme Başlangıç Tarihi</mat-label>
+              <input
+                matInput
+                [disabled]="true"
+                type="text"
+                [(ngModel)]="model.sozlesmeBaslangicTarihi"
+                name="sozlesmeBaslangicTarihi"
+                #name="ngModel"
+              />
+            </mat-form-field>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Teslim Süresi</label>
-          <div class="controls">
-            <input
-              [readonly]="true"
-              class="form-control"
-              type="text"
-              id="teslimSuresi"
-              [(ngModel)]="model.teslimSuresi"
-              name="teslimSuresi"
-              #name="ngModel"
-            />
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Sözleşme Bitiş Tarihi</mat-label>
+              <input
+                matInput
+                [disabled]="true"
+                type="text"
+                [(ngModel)]="model.sozlesmeBitisTarihi"
+                name="sozlesmeBitisTarihi"
+                #name="ngModel"
+              />
+            </mat-form-field>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Voucher</label>
-          <div class="controls">
-            <input
-              [readonly]="true"
-              class="form-control"
-              type="text"
-              id="voucher"
-              [(ngModel)]="model.voucher"
-              name="voucher"
-              #name="ngModel"
-            />
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Bedelli</mat-label>
+              <input
+                matInput
+                [disabled]="true"
+                type="text"
+                [(ngModel)]="model.bedelli"
+                name="bedelli"
+                #name="ngModel"
+              />
+            </mat-form-field>
           </div>
-        </div>
+          <div *ngIf="model.bedelli == 'Evet'">
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Sözleşme Bedeli</mat-label>
+                <input
+                  matInput
+                  [disabled]="true"
+                  type="text"
+                  [(ngModel)]="model.sozlesmeBedeli"
+                  name="sozlesmeBedeli"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Lisans Başlangıç Tarihi</mat-label>
+                <input
+                  matInput
+                  [disabled]="true"
+                  type="text"
+                  [(ngModel)]="model.lisansBaslangicTarihi"
+                  name="lisansBaslangicTarihi"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Lisans Bitiş Tarihi</mat-label>
+                <input
+                  matInput
+                  [disabled]="true"
+                  type="text"
+                  [(ngModel)]="model.lisansBitisTarihi"
+                  name="lisansBitisTarihi"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Garanti Süresi</mat-label>
+                <input
+                  matInput
+                  [disabled]="true"
+                  type="text"
+                  [(ngModel)]="model.garantiSuresi"
+                  name="garantiSuresi"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Teslim Süresi</mat-label>
+                <input
+                  matInput
+                  [disabled]="true"
+                  type="text"
+                  [(ngModel)]="model.teslimSuresi"
+                  name="teslimSuresi"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Voucher</mat-label>
+                <input
+                  matInput
+                  [disabled]="true"
+                  type="text"
+                  [(ngModel)]="model.voucher"
+                  name="voucher"
+                  #name="ngModel"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Satınalma Yorum</mat-label>
+              <textarea
+                matInput
+                [disabled]="true"
+                [(ngModel)]="model.satinalmaYorum"
+                name="satinalmaYorum"
+                #name="ngModel"
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field class="full-width">
+              <mat-label>Hukuk Yorum</mat-label>
+              <textarea
+                matInput
+                [disabled]="true"
+                [(ngModel)]="model.hukukYorum"
+                name="hukukYorum"
+                #name="ngModel"
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <div class="controls">
+              <input style="display: none;" type="text" id="sozlesmeNo" />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+            >
+              Arşivle
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="control-group">
-        <label class="control-label">Yorum</label>
-        <div class="controls">
-          <textarea
-            [readonly]="true"
-            id="hukukYorum"
-            [(ngModel)]="model.hukukYorum"
-            name="hukukYorum"
-            #name="ngModel"
-          ></textarea>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Yorum</label>
-        <div class="controls">
-          <textarea
-            [readonly]="true"
-            id="satinalmaYorum"
-            [(ngModel)]="model.satinalmaYorum"
-            name="satinalmaYorum"
-            #name="ngModel"
-          ></textarea>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="controls">
-          <input style="display: none;" type="text" id="sozlesmeNo" />
-        </div>
-      </div>
-      <div class="field">
-        <button
-          type="submit"
-          class="ui button"
-          [disabled]="!talepForm.form.valid"
-        >
-          Arşivle
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
+  </mat-card-content>
+</mat-card>

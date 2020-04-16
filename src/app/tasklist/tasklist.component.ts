@@ -27,8 +27,9 @@ export class TasklistComponent implements OnInit {
   }
 
   getTasks(): void {
+    const currentUser = localStorage.getItem('currentUser');
     this.camundaRestService
-      .getTasks()
+      .getTasksByAssignee(currentUser)
       .subscribe(tasks => this.tasks = tasks);
   }
 

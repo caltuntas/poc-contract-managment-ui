@@ -25,6 +25,14 @@ export class CamundaRestService {
     );
   }
 
+  getTasksByAssignee(assignee: string): Observable<Task[]> {
+    const endpoint = `${this.engineRestUrl}task?assignee=${assignee}&sortBy=created&sortOrder=desc&maxResults=10`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched tasks`)),
+      catchError(this.handleError('getTasks', []))
+    );
+  }
+
   getTaskFormKey(taskId: String): Observable<any> {
     const endpoint = `${this.engineRestUrl}task/${taskId}/form`;
     return this.http.get<any>(endpoint).pipe(

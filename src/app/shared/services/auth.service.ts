@@ -17,7 +17,7 @@ export class AuthService {
   login(userName: string, password: string) {
     if (userName !== '' && password !== '' ) {
       this.loggedIn.next(true);
-      localStorage.setItem('currentUser', JSON.stringify(userName));
+      localStorage.setItem('currentUser', userName);
       this.router.navigate(['/processlist']);
     }
   }

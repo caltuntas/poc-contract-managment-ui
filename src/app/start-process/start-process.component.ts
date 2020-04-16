@@ -12,9 +12,9 @@ import { GenericForm } from '../generic-form.component';
   styleUrls: ['./start-process.component.css']
 })
 export class StartProcessComponent implements OnInit {
-  private processDefinitionKey: String = null;
-  private formKey: String = null;
-  private rootViewContainer = null;
+  processDefinitionKey: String = null;
+  formKey: String = null;
+  rootViewContainer = null;
 
   constructor(private route: ActivatedRoute,
               private router: Router,

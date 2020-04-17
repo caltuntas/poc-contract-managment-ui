@@ -31,12 +31,27 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>*</th>
         <td mat-cell *matCellDef="let element">
-        <a routerLink="/startprocess/{{element.key}}">Başlat</a>
+          <a routerLink="/startprocess/{{ element.key }}">Başlat</a>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+
+    <div *ngIf="!SUCCESS">
+      <label class="md-button md-raised md-primary" for="file"
+        >Lütfen süreç dosyasın seçiniz!</label
+      >
+      <input
+        type="file"
+        class="ng-hide"
+        id="file"
+        (change)="handleFileInput($event.target.files)"
+      />
+    </div>
+    <div *ngIf="SUCCESS">
+      <p>Süreç başarıyla eklendi!</p>
+    </div>
   </mat-card-content>
 </mat-card>

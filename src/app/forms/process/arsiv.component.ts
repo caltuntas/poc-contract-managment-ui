@@ -11,16 +11,15 @@ import { MatDialog } from '@angular/material';
   styleUrls: []
 })
 export class arsivComponent extends CompleteTaskComponent {
-  submitted:boolean = false;
+  submitted = false;
   model = new ProcessData();
 
   constructor(route: ActivatedRoute,
     router: Router,
     dialog: MatDialog,
     camundaRestService: CamundaRestService) {
-    super(route, router,dialog, camundaRestService);
+    super(route, router, dialog, camundaRestService);
     this.route.params.subscribe(params => {
-      const taskId = params['id'];
       const processIntanceId = params['processInstanceId'];
       const variableNames = Object.keys(this.model).join(',');
       this.loadExistingProcessVariables(processIntanceId, variableNames);

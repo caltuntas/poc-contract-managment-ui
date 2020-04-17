@@ -1,5 +1,8 @@
+import { DocumentComponent } from '../../document/document.component';
+import { Observable, Subscription } from 'rxjs';
 import { CamundaRestService } from '../../shared/services/camunda-rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 export class CompleteTaskComponent {
   model
@@ -10,6 +13,7 @@ export class CompleteTaskComponent {
 
   constructor(route: ActivatedRoute,
     router: Router,
+    private dialog: MatDialog,
     camundaRestService: CamundaRestService,
     ) {
       this.route = route;
@@ -30,8 +34,8 @@ export class CompleteTaskComponent {
       this.generateModelFromVariables(result);
     });
   }
-  loadExistingProcessVariables(taskId: String, variableNames: String) {
-    this.camundaRestService.getVariablesForProcessInstance(taskId, variableNames).subscribe((result) => {
+  loadExistingProcessVariables(taskId: String, variableNames: String): Subscription {
+    return this.camundaRestService.getVariablesForProcessInstance(taskId, variableNames).subscribe((result) => {
       this.generateModelFromVariables(result);
     });
   }
@@ -51,5 +55,26 @@ export class CompleteTaskComponent {
     });
 
     return variables;
+  }
+
+  openDocument() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      documentNumber: this.model.sozlesmeNo,
+      title: 'Sözleşme Dökümanı',
+    };
+    dialogConfig.width = '1000px';
+    dialogConfig.height = '1000px';
+    dialogConfig.panelClass = 'my-dialog';
+
+
+    const dialogRef = this.dialog.open(DocumentComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => console.log('Dialog output:', data)
+    );
   }
 }

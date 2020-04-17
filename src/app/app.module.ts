@@ -18,6 +18,7 @@ import { TaskComponent } from './task/task.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/services/auth.service';
+import { DocumentComponent } from './document/document.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { AuthService } from './shared/services/auth.service';
     HomeComponent,
     StartProcessComponent,
     GenericForm,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     FormsModule,
@@ -41,6 +42,7 @@ import { AuthService } from './shared/services/auth.service';
     ReactiveFormsModule,
   ],
   providers: [CamundaRestService, AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DocumentComponent]
 })
 export class AppModule { }

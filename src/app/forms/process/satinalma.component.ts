@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CamundaRestService } from '../../shared/services/camunda-rest.service';
 import { CompleteTaskComponent } from '../general/complete-task.component';
 import { ProcessData } from '../../shared/models/ProcessData';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'satinalmaComponent',
@@ -15,8 +16,9 @@ export class satinalmaComponent extends CompleteTaskComponent {
 
   constructor(route: ActivatedRoute,
     router: Router,
+    dialog: MatDialog,
     camundaRestService: CamundaRestService) {
-    super(route, router, camundaRestService);
+    super(route, router, dialog, camundaRestService);
     this.route.params.subscribe(params => {
       const taskId = params['id'];
       const processIntanceId = params['processInstanceId'];

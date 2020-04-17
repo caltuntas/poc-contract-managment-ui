@@ -1,3 +1,4 @@
+import { DocumentComponent } from './../../document/document.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,7 @@ import { MyMaterialModule } from '../../material.module';
 
 @NgModule({
   entryComponents: [talepComponent, hukukComponent, satinalmaComponent, arsivComponent],
-  declarations: [talepComponent, hukukComponent, satinalmaComponent, arsivComponent],
+  declarations: [talepComponent, hukukComponent, satinalmaComponent, arsivComponent, DocumentComponent],
   imports: [FormsModule,ReactiveFormsModule, CommonModule, MyMaterialModule],
   exports: [talepComponent, hukukComponent, satinalmaComponent, arsivComponent]
 })

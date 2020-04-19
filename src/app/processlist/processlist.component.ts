@@ -10,7 +10,8 @@ import { MatDialogConfig, MatDialog } from '@angular/material';
 })
 export class ProcesslistComponent implements OnInit {
   processDefinitions;
-  displayedColumns: string[] = ['id', 'name', 'description', 'key', 'resource', 'action'];
+  processXml;
+  displayedColumns: string[] = ['id', 'name', 'description', 'key', 'resource', 'diagram', 'action'];
 
   constructor(
     private dialog: MatDialog,
@@ -24,6 +25,15 @@ export class ProcesslistComponent implements OnInit {
     this.camundaRestService
       .getProcessDefinitions()
       .subscribe(processDefinitions => this.processDefinitions = processDefinitions);
+  }
+
+  showDiagram(e) {
+    this.camundaRestService
+      .getProcessDefinitionXml(e)
+      .subscribe(result => {
+        console.log(result);
+        this.processXml = result.bpmn20Xml;
+      });
   }
 
   addNewProcess() {

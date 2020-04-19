@@ -45,3 +45,18 @@ body {
   line-height: 14px;
   min-width: auto;
 }
+
+.diagram-parent {
+  height: 800px;
+  border: solid 3px #EEE;
+  position: relative;
+}
+
+.import-error {
+  color: red;
+  padding: 20px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}

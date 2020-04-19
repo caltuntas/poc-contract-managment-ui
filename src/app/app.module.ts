@@ -20,6 +20,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { DocumentComponent } from './document/document.component';
 import { UploadProcessComponent } from './upload-process/upload-process.component';
+import { DiagramComponent } from './diagram/diagram.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { UploadProcessComponent } from './upload-process/upload-process.componen
     GenericForm,
     LoginComponent,
     UploadProcessComponent,
+    DiagramComponent,
   ],
   imports: [
     FormsModule,

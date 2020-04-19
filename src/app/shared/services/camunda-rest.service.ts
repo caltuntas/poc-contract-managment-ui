@@ -80,6 +80,14 @@ export class CamundaRestService {
     );
   }
 
+  getProcessDefinitionXml(id: string): Observable<any> {
+    const url = `${this.engineRestUrl}process-definition/${id}/xml`;
+    return this.http.get<any>(url).pipe(
+      tap(processDefinitions => this.log(`fetched processDefinitions`)),
+      catchError(this.handleError('getProcessDefinitionXml', []))
+    );
+  }
+
   postProcessInstance(processDefinitionKey, variables): Observable<any> {
     const endpoint = `${this.engineRestUrl}process-definition/key/${processDefinitionKey}/start`;
     return this.http.post<any>(endpoint, variables).pipe(

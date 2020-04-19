@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CamundaRestService } from '../shared/services/camunda-rest.service'
+import { UploadProcessComponent } from '../upload-process/upload-process.component';
+import { MatDialogConfig, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-processlist',
@@ -8,11 +10,11 @@ import { CamundaRestService } from '../shared/services/camunda-rest.service'
 })
 export class ProcesslistComponent implements OnInit {
   processDefinitions;
-  private fileToUpload: File = null;
-  private SUCCESS: boolean = false;
   displayedColumns: string[] = ['id', 'name', 'description', 'key', 'resource', 'action'];
 
-  constructor(private camundaRestService: CamundaRestService) { }
+  constructor(
+    private dialog: MatDialog,
+    private camundaRestService: CamundaRestService) { }
 
   ngOnInit() {
     this.getProcessDefinitions();
@@ -24,17 +26,21 @@ export class ProcesslistComponent implements OnInit {
       .subscribe(processDefinitions => this.processDefinitions = processDefinitions);
   }
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    this.uploadFileToActivity();
-  }
+  addNewProcess() {
+    const dialogConfig = new MatDialogConfig();
 
-  uploadFileToActivity() {
-    this.camundaRestService.deployProcess(this.fileToUpload).subscribe(data => {
-      this.SUCCESS = true;
-      }, error => {
-        console.log(error);
-    });
+    dialogConfig.autoFocus = true;
+
+    // dialogConfig.width = '400px';
+    // dialogConfig.height = '400px';
+    // dialogConfig.panelClass = 'my-dialog';
+
+
+    const dialogRef = this.dialog.open(UploadProcessComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => console.log('Dialog output:', data)
+    );
   }
 
 }

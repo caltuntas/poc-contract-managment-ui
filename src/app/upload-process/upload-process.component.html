@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Süreç Ekleme</h2>
+<mat-dialog-content class="mat-typography">
+  <div *ngIf="!SUCCESS">
+    <label class="md-button md-raised md-primary" for="file"
+      >Lütfen süreç dosyasın seçiniz!</label
+    >
+    <input
+      type="file"
+      class="ng-hide"
+      id="file"
+      (change)="handleFileInput($event.target.files)"
+    />
+  </div>
+  <div *ngIf="SUCCESS">
+    <p>Süreç başarıyla eklendi!</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Kapat</button>
+</mat-dialog-actions>

@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { DocumentComponent } from './document/document.component';
+import { UploadProcessComponent } from './upload-process/upload-process.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DocumentComponent } from './document/document.component';
     StartProcessComponent,
     GenericForm,
     LoginComponent,
+    UploadProcessComponent,
   ],
   imports: [
     FormsModule,
@@ -43,6 +45,6 @@ import { DocumentComponent } from './document/document.component';
   ],
   providers: [CamundaRestService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DocumentComponent]
+  entryComponents: [DocumentComponent, UploadProcessComponent]
 })
 export class AppModule { }

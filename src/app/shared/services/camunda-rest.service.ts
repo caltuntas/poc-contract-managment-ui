@@ -11,7 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class CamundaRestService {
-  private engineRestUrl = 'http://localhost:8080/rest/';
+  private engineRestUrl = 'http://localhost:7070/rest/';
 
   constructor(private http: HttpClient) {
 
@@ -25,6 +25,14 @@ export class CamundaRestService {
     );
   }
 
+  getTasksByProcessId(processId: string): Observable<Task[]> {
+    const endpoint = `${this.engineRestUrl}task?processInstanceId=${processId}`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched tasks`)),
+      catchError(this.handleError('getTasks', []))
+    );
+  }
+
   getTasksByAssignee(assignee: string): Observable<Task[]> {
     const endpoint = `${this.engineRestUrl}task?assignee=${assignee}&sortBy=created&sortOrder=desc&maxResults=10`;
     return this.http.get<any>(endpoint).pipe(
@@ -32,6 +40,22 @@ export class CamundaRestService {
       catchError(this.handleError('getTasks', []))
     );
   }
+
+  getTasksByOwner(owner: string): Observable<Task[]> {
+    const endpoint = `${this.engineRestUrl}history/task?processVariables=startUser_eq_${owner}&sortBy=startTime&sortOrder=desc&maxResults=10`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched tasks`)),
+      catchError(this.handleError('getTasks', []))
+    );
+  }  
+
+  getTasksByAction(actioner: string): Observable<Task[]> {
+    const endpoint = `${this.engineRestUrl}history/task?taskAssignee=${actioner}&finished=true&sortBy=startTime&sortOrder=desc&maxResults=10`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched tasks`)),
+      catchError(this.handleError('getTasks', []))
+    );
+  }    
 
   getTaskFormKey(taskId: String): Observable<any> {
     const endpoint = `${this.engineRestUrl}task/${taskId}/form`;
@@ -80,6 +104,14 @@ export class CamundaRestService {
     );
   }
 
+  getHistoryProcessInstanceCount(processKey: string): Observable<any> {
+    const endpoint = `${this.engineRestUrl}history/process-instance/count?processDefinitionKey=${processKey}`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(processDefinitions => this.log(`get history process instance count`)),
+      catchError(this.handleError('getHistoryProcessInstanceCount', []))
+    );
+  }  
+
   postProcessInstance(processDefinitionKey, variables): Observable<any> {
     const endpoint = `${this.engineRestUrl}process-definition/key/${processDefinitionKey}/start`;
     return this.http.post<any>(endpoint, variables).pipe(
@@ -87,6 +119,14 @@ export class CamundaRestService {
       catchError(this.handleError('postProcessInstance', []))
     );
   }
+
+  getHistoryVariablesForTask(processId: String): Observable<any> {
+    const endpoint = `${this.engineRestUrl}history/variable-instance?processInstanceId=${processId}`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched variables`)),
+      catchError(this.handleError('getHistoryVariablesForTask', []))
+    );
+  }  
 
   deployProcess(fileToUpload: File): Observable<any> {
     const endpoint = `${this.engineRestUrl}deployment/create`;

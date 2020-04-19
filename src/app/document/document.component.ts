@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent implements OnInit {
-  externalUrl = 'http://localhost:9001/p/';
+  externalUrl = 'https://video.etherpad.com/p/pocdemo_';
   url: SafeResourceUrl;
   constructor(public sanitizer: DomSanitizer,
     @Inject(MAT_DIALOG_DATA) public data: any,

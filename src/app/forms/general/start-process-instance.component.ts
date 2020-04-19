@@ -9,9 +9,9 @@ export class StartProcessInstanceComponent {
 
   constructor(route: ActivatedRoute,
     camundaRestService: CamundaRestService
-    ) {
-      this.route = route;
-      this.camundaRestService = camundaRestService;
+  ) {
+    this.route = route;
+    this.camundaRestService = camundaRestService;
   }
   onSubmit() {
     this.route.params.subscribe(params => {
@@ -23,14 +23,15 @@ export class StartProcessInstanceComponent {
   }
   generateVariablesFromFormFields() {
     const variables = {
-      variables: { }
+      variables: {}
     };
     Object.keys(this.model).forEach((field) => {
       variables.variables[field] = {
         value: this.model[field]
       };
     });
-
+    const currentUser = localStorage.getItem('currentUser');
+    variables.variables["actionUser"] = { value: currentUser };
     return variables;
   }
 }

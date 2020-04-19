@@ -1,24 +1,20 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button
-      mat-icon-button
-      #btnSideNavToggle
-      (click)="sideNav.toggle()"
-      fxHide.gt-sm
-    >
+    <button mat-icon-button #btnSideNavToggle (click)="sideNav.toggle()" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
     </button>
     Ericsson Süreç Yöneticisi
     <span class="example-spacer"></span>
-    <span flex></span>
+    <span flex></span>    
+    {{currentUser}}
     <button mat-icon-button>
       <mat-icon>person_outline</mat-icon>
     </button>
-    <button mat-icon-button (click)="logout()" >
+    <button mat-icon-button (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
     </button>
     <mat-menu #auth="matMenu">
-      <button mat-menu-item >
+      <button mat-menu-item>
         <mat-icon>exit_to_app</mat-icon>
         <span>Sign out</span>
       </button>
@@ -26,23 +22,35 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav
-    #sideNav
-    align="start"
-    mode="{{ navMode }}"
-    opened="true"
-    class="mat-elevation-z1"
-  >
+  <mat-sidenav #sideNav align="start" mode="{{ navMode }}" opened="true" class="mat-elevation-z1">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Akışlar
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div *ngFor="let item of processDefinitions; index as i; trackBy: trackByFn">
+        <button mat-raised-button color="basic" (click)="startProcess(item.key); closeNav();">
+          <mat-icon>assignment</mat-icon>
+          {{item.name}}
+        </button>
+      </div>
+    </mat-expansion-panel>
+
     <mat-nav-list>
       <mat-accordion>
-        <a routerLink="/processlist" class="item" mat-list-item>
-          <mat-icon mat-list-icon>settings</mat-icon
-          ><span mat-line>Süreç Tanımları</span></a
-        >
-        <a routerLink="/tasklist" class="item" mat-list-item>
-          <mat-icon mat-list-icon>exit_to_app </mat-icon
-          ><span mat-line>Görev Listesi</span></a
-        >
+        <a routerLink="/tasklist/waiting" class="item" mat-list-item (click)="closeNav();"> 
+          <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Bekleyen İşlerim</span>
+        </a>
+        <a routerLink="/tasklist/action" class="item" mat-list-item (click)="closeNav();">
+          <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Aksiyon Aldıklarım</span>
+        </a>    
+        <a routerLink="/tasklist/mytasks" class="item" mat-list-item (click)="closeNav();">
+          <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Taleplerim</span>
+        </a>              
       </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>

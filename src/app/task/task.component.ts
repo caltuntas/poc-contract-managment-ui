@@ -18,6 +18,7 @@ export interface PeriodicElement {
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
+  history: Boolean;
   taskId: String;
   formKey: String;
 
@@ -28,10 +29,13 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.history=false;
     if (this.route.params != null) {
       this.route.params.subscribe(params => {
         if (params['id'] != null) {
           this.taskId = params['id'];
+          if (params['history'])
+          this.history=true;
           this.getFormKey();
         }
       });

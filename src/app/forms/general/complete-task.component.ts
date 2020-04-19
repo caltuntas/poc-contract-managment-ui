@@ -53,6 +53,8 @@ export class CompleteTaskComponent {
         value: this.model[field]
       };
     });
+    const currentUser = localStorage.getItem('currentUser');
+    variables.variables["actionUser"] = { value: currentUser };    
 
     return variables;
   }
@@ -63,7 +65,7 @@ export class CompleteTaskComponent {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-      documentNumber: this.model.sozlesmeNo,
+      documentNumber: this.model.workflowNo,
       title: 'Sözleşme Dökümanı',
     };
     dialogConfig.width = '1000px';

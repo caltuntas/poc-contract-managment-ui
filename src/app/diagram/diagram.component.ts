@@ -103,17 +103,12 @@ export class DiagramComponent implements AfterContentInit, OnChanges, OnDestroy 
   }
 
   loadXml(xml: string) {
-
-        this.bpmnJS.importXML(xml, function(err, warnings) {
-
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(warnings);
-          }
-
-        });
-
+    this.bpmnJS.importXML(xml, function (err, warnings) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(warnings);
+      }
+    });
   }
-
 }

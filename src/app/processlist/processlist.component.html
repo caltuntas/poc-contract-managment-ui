@@ -55,12 +55,8 @@
           </a>
         </td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <div class="diagram-parent">
-      <app-diagram [xml]="processXml"></app-diagram>
-    </div>
   </mat-card-content>
 </mat-card>

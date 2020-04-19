@@ -1,3 +1,4 @@
+import { ProcessDiagramComponent } from './process-diagram/process-diagram.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
 
       { path: 'processlist', component: ProcesslistComponent, canActivate: [AuthGuard] },
       { path: 'startprocess/:processdefinitionkey', component: StartProcessComponent, canActivate: [AuthGuard] },
+      { path: 'processdiagram/:processDefinitionId', component: ProcessDiagramComponent, canActivate: [AuthGuard] },
       { path: 'tasklist', component: TasklistComponent, canActivate: [AuthGuard] },
       { path: 'tasks/:id/:processInstanceId', component: TaskComponent, canActivate: [AuthGuard] },
     ],

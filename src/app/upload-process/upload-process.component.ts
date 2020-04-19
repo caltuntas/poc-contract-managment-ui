@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material';
 })
 export class UploadProcessComponent implements OnInit {
   private fileToUpload: File = null;
-  private SUCCESS = false;
+  SUCCESS = false;
   constructor(
     private dialog: MatDialog,
     private camundaRestService: CamundaRestService) { }

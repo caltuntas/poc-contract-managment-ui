@@ -1,3 +1,4 @@
+import { ProcessDiagramComponent } from './../process-diagram/process-diagram.component';
 import { Component, OnInit } from '@angular/core';
 import { CamundaRestService } from '../shared/services/camunda-rest.service'
 import { UploadProcessComponent } from '../upload-process/upload-process.component';
@@ -31,8 +32,23 @@ export class ProcesslistComponent implements OnInit {
     this.camundaRestService
       .getProcessDefinitionXml(e)
       .subscribe(result => {
+
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+          xml: result.bpmn20Xml,
+        };
+        dialogConfig.maxWidth = '80vw !important';
+        dialogConfig.width = '80vw';
+        dialogConfig.panelClass = 'my-dialog';
+
+        dialogConfig.autoFocus = true;
+
+        const dialogRef = this.dialog.open(ProcessDiagramComponent, dialogConfig);
+
+        dialogRef.afterClosed().subscribe(
+          data => console.log('Dialog output:', data)
+        );
         console.log(result);
-        this.processXml = result.bpmn20Xml;
       });
   }
 
@@ -40,11 +56,6 @@ export class ProcesslistComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;
-
-    // dialogConfig.width = '400px';
-    // dialogConfig.height = '400px';
-    // dialogConfig.panelClass = 'my-dialog';
-
 
     const dialogRef = this.dialog.open(UploadProcessComponent, dialogConfig);
 

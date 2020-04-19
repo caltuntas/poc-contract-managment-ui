@@ -59,7 +59,7 @@ export class CompleteTaskComponent {
     return variables;
   }
 
-  openDocument() {
+  openDocument(x: String) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;
@@ -67,6 +67,7 @@ export class CompleteTaskComponent {
     dialogConfig.data = {
       documentNumber: this.model.workflowNo,
       title: 'Sözleşme Dökümanı',
+      type:x
     };
     dialogConfig.width = '95%';
     dialogConfig.height = '95%';

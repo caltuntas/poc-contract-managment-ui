@@ -51,7 +51,6 @@ export class TasklistComponent implements OnInit {
   }
 
   getTasks(): void {
-    console.log(this.listFn);
     const currentUser = localStorage.getItem('currentUser');
     if (this.listFn == "waiting")
       this.camundaRestService

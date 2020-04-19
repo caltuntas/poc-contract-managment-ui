@@ -42,8 +42,6 @@ export class GenericForm implements OnChanges {
   }
 
   public addDynamicComponent(formKey: String) {
-    console.log(MyAddon);
-    console.log(formKey);
     const factory = this.factoryResolver.resolveComponentFactory(MyAddon[formKey + 'Component']);
     const component = factory.create(this.rootViewContainer.parentInjector);
 

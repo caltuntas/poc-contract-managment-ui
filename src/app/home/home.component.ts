@@ -71,7 +71,6 @@ export class HomeComponent implements OnInit {
             'startUser': { type: 'String', value: this.currentUser }
           }
         };
-        console.log(variables);
         this.camundaRestService.postProcessInstance(processKey, variables).subscribe(
           serviceResult => {
             let processId = serviceResult.id;

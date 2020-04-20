@@ -53,21 +53,24 @@ export class CompleteTaskComponent {
         value: this.model[field]
       };
     });
+    const currentUser = localStorage.getItem('currentUser');
+    variables.variables["actionUser"] = { value: currentUser };    
 
     return variables;
   }
 
-  openDocument() {
+  openDocument(x: String) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-      documentNumber: this.model.sozlesmeNo,
+      documentNumber: this.model.workflowNo,
       title: 'Sözleşme Dökümanı',
+      type:x
     };
-    dialogConfig.width = '1000px';
-    dialogConfig.height = '1000px';
+    dialogConfig.width = '95%';
+    dialogConfig.height = '95%';
     dialogConfig.panelClass = 'my-dialog';
 
 

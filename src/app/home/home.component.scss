@@ -30,3 +30,7 @@ $toolbar-title-padding: 16px !default;
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.nopadding {
+  padding: 0 !important;
+}

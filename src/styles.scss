@@ -46,6 +46,10 @@ body {
   min-width: auto;
 }
 
+.my-dialog .mat-dialog-container{
+  padding: 10px !important;
+  overflow: hidden;
+}
 .diagram-parent {
   height: 800px;
   border: solid 3px #EEE;
@@ -63,4 +67,3 @@ body {
 
 .full-width-dialog .mat-dialog-container {
   max-width: 100vw !important;
-}

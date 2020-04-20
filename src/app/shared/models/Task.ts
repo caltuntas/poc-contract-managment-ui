@@ -6,4 +6,5 @@ export class Task {
   processInstanceId: string;
   taskDefinitionKey: string;
   priority: number;
+  variables:{};
 }

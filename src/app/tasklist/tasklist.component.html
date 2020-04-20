@@ -1,12 +1,12 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>Görev Listesi</mat-card-title>
+    <mat-card-title>{{headerTitle}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.variables && element.variables.workflowNo }}</td>
       </ng-container>
 
       <ng-container matColumnDef="name">
@@ -20,17 +20,22 @@
       </ng-container>
 
       <ng-container matColumnDef="priority">
-        <th mat-header-cell *matHeaderCellDef>Öncelik</th>
-        <td mat-cell *matCellDef="let element">{{ element.priority }}</td>
+        <th mat-header-cell *matHeaderCellDef>Başlatma Tarihi</th>
+        <td mat-cell *matCellDef="let element">{{ (element.created || element.startTime) | date:'dd.MM.yyyy HH:mm' }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="test">
         <th mat-header-cell *matHeaderCellDef>*</th>
         <td mat-cell *matCellDef="let element">
-          <a
-            routerLink="/tasks/{{ element.id }}/{{ element.processInstanceId }}"
-            >İşlem Yap</a
-          >
+          <a routerLink="/tasks/{{element.id}}/{{element.processInstanceId}}/0">İşlem Yap</a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="test2">
+        <th mat-header-cell *matHeaderCellDef>*</th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="/tasks/{{element.id}}/{{element.processInstanceId}}/1">Görüntüle</a>
         </td>
       </ng-container>
 

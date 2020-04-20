@@ -11,7 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class CamundaRestService {
-  private engineRestUrl = 'http://localhost:8080/rest/';
+  private engineRestUrl = 'http://localhost:7070/rest/';
 
   constructor(private http: HttpClient) {
 

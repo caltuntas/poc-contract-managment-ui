@@ -1,6 +1,6 @@
 {
   "/engine-rest/*": {
-    "target": "http://localhost:8080/api/engine/engine/default/",
+    "target": "http://localhost:7070/api/engine/engine/default/",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"

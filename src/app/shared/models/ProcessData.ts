@@ -19,8 +19,9 @@ export class ProcessData {
     public bedelli: string;
     public satinalmaOnay: string;
     public hukukOnay: string;
-
-
+    public workflowNo: Number;
+    public startUser: string;
+    public actionUser: string;
 
   constructor(
   ) {  }

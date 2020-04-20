@@ -40,7 +40,7 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <div *ngFor="let item of processDefinitions; index as i; trackBy: trackByFn">
+      <div *ngFor="let item of processDefinitions; index as i;">
         <button mat-raised-button color="basic" (click)="startProcess(item.key); closeNav();" style="margin-bottom:10px;">
           <mat-icon>assignment</mat-icon>
           {{item.name}}

@@ -59,7 +59,7 @@ export class CompleteTaskComponent {
     return variables;
   }
 
-  openDocument(x: String) {
+  openDocument(x: Number) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;

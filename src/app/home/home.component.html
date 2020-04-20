@@ -23,6 +23,14 @@
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sideNav align="start" mode="{{ navMode }}" opened="true" class="mat-elevation-z1">
+    <mat-nav-list>
+      <mat-accordion>
+        <a routerLink="processlist" class="item" mat-list-item (click)="closeNav();"> 
+          <mat-icon mat-list-icon>settings </mat-icon><span mat-line>Süreç Yönetimi</span>
+        </a>            
+      </mat-accordion>
+    </mat-nav-list>
+
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -33,7 +41,7 @@
       </mat-expansion-panel-header>
 
       <div *ngFor="let item of processDefinitions; index as i; trackBy: trackByFn">
-        <button mat-raised-button color="basic" (click)="startProcess(item.key); closeNav();">
+        <button mat-raised-button color="basic" (click)="startProcess(item.key); closeNav();" style="margin-bottom:10px;">
           <mat-icon>assignment</mat-icon>
           {{item.name}}
         </button>
@@ -43,13 +51,13 @@
     <mat-nav-list>
       <mat-accordion>
         <a routerLink="/tasklist/waiting" class="item" mat-list-item (click)="closeNav();"> 
-          <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Bekleyen İşlerim</span>
+          <mat-icon mat-list-icon>alarm </mat-icon><span mat-line>Bekleyen İşlerim</span>
         </a>
         <a routerLink="/tasklist/action" class="item" mat-list-item (click)="closeNav();">
-          <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Aksiyon Aldıklarım</span>
+          <mat-icon mat-list-icon>done_all </mat-icon><span mat-line>Aksiyon Aldıklarım</span>
         </a>    
         <a routerLink="/tasklist/mytasks" class="item" mat-list-item (click)="closeNav();">
-          <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Taleplerim</span>
+          <mat-icon mat-list-icon>card_travel </mat-icon><span mat-line>Taleplerim</span>
         </a>              
       </mat-accordion>
     </mat-nav-list>

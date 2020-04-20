@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyMaterialModule } from './material.module';
 import { TaskComponent } from './task/task.component';
 import { LoginComponent } from './login/login.component';
+import { ProcesslistComponent } from './processlist/processlist.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { DocumentComponent } from './document/document.component';
@@ -60,9 +61,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     StartProcessComponent,
     GenericForm,
     LoginComponent,
+    ProcesslistComponent,
     UploadProcessComponent,
     DiagramComponent,
-    ProcessDiagramComponent,
+    ProcessDiagramComponent    
   ],
   imports: [
     FormsModule,

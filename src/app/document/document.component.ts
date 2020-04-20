@@ -50,6 +50,7 @@ export class DocumentComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.data.type);
     this.currentUser = localStorage.getItem('currentUser');
     if (this.data.type == "2")
       this.url = this.sanitizer

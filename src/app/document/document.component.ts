@@ -41,6 +41,7 @@ function documentViewer(currentUser, title, documentNumber, uniqueuser) {
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent implements OnInit {
+  viewSelect: Number;
   currentUser;
   url: SafeResourceUrl;
   constructor(public sanitizer: DomSanitizer,
@@ -50,9 +51,9 @@ export class DocumentComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data.type);
+    this.viewSelect=this.data.type;
     this.currentUser = localStorage.getItem('currentUser');
-    if (this.data.type == "2")
+    if (this.data.type == 2)
       this.url = this.sanitizer
       .bypassSecurityTrustResourceUrl("https://yopad.eu/p/poc_doc_"+this.data.documentNumber+"?lang=tr&userName="+this.currentUser);
     else

@@ -67,7 +67,7 @@ export class CompleteTaskComponent {
     dialogConfig.data = {
       documentNumber: this.model.workflowNo,
       title: 'Sözleşme Dökümanı',
-      type:x
+      type: x
     };
     dialogConfig.width = '95%';
     dialogConfig.height = '95%';
